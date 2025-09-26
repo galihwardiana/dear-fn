@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FN Countdown</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <div class="max-w-4xl mx-auto p-6">
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-center mb-8">Countdown to Our First Date ❤️</h1>
+
+    <!-- Countdown Timer -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 text-center mb-10">
+      <h2 class="text-2xl font-semibold mb-4">The Big Day</h2>
+      <p id="countdown" class="text-3xl font-bold text-pink-600"></p>
+    </div>
+
+    <!-- Google Map -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 mb-10">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Our Journey</h2>
+      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1dFZ6qfT56SzDm9PhKeZ7VxooJfuqa9k"
+              width="100%" height="480" class="rounded-lg border-0"></iframe>
+    </div>
+
+    <!-- Visit Plan -->
+    <section class="max-w-3xl mx-auto mt-10 px-4">
+      <h2 class="text-2xl font-bold mb-6 text-center">Visit Plan</h2>
+    
+      <!-- Day 1 -->
+      <details class="bg-white shadow-lg rounded-2xl p-6 mb-4">
+        <summary class="cursor-pointer text-lg font-semibold">Day 1 <span class="text-gray-500 text-sm">13:00 – 21:00</span></summary>
+        <div class="mt-3">
+          <p class="mb-2">
+            <span class="font-semibold">Summary:</span> A creative activity in the afternoon, freshen up, then dinner and a night drive.
+          </p>
+          <p>
+            <span class="font-semibold">Dress suggestion:</span> Casual for the day, semi-formal for the evening.
+          </p>
+        </div>
+      </details>
+    
+      <!-- Day 2 -->
+      <details class="bg-white shadow-lg rounded-2xl p-6 mb-4">
+        <summary class="cursor-pointer text-lg font-semibold">Day 2 <span class="text-gray-500 text-sm">15:00 – 21:30</span></summary>
+        <div class="mt-3">
+          <p class="mb-2">
+            <span class="font-semibold">Summary:</span> Afternoon stroll, early dinner, then a cultural show.
+          </p>
+          <p>
+            <span class="font-semibold">Dress suggestion:</span> Comfortable but nice for walking and the show.
+          </p>
+        </div>
+      </details>
+    
+      <!-- Day 3 -->
+      <details class="bg-white shadow-lg rounded-2xl p-6 mb-4">
+        <summary class="cursor-pointer text-lg font-semibold">Day 3 <span class="text-gray-500 text-sm">15:30 – 20:30+</span></summary>
+        <div class="mt-3">
+          <p class="mb-2">
+            <span class="font-semibold">Summary:</span> An afternoon workshop, casual dinner, and evening stroll.
+          </p>
+          <p>
+            <span class="font-semibold">Dress suggestion:</span> Light and comfortable for moving around.
+          </p>
+        </div>
+      </details>
+    
+      <!-- Day 4 -->
+      <details class="bg-white shadow-lg rounded-2xl p-6 mb-4">
+        <summary class="cursor-pointer text-lg font-semibold">Day 4 <span class="text-gray-500 text-sm">17:30 – 20:15</span></summary>
+        <div class="mt-3">
+          <p class="mb-2">
+            <span class="font-semibold">Summary:</span> Dinner together, a short tour, and dessert to wrap up.
+          </p>
+          <p>
+            <span class="font-semibold">Dress suggestion:</span> Casual but neat for dinner and photos.
+          </p>
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+    const targetDate = new Date("2025-10-29T13:00:00+07:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "It's time! 💖";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
